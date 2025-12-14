@@ -5,19 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0111 LIMITED – Sovereign African Cloud</title>
     <style>
-        body { margin: 0; font-family: Arial, sans-serif; background: #00A651; color: white; text-align: center; padding: 80px 20px; }
-        h1 { font-size: 48px; margin: 20px 0; }
-        h2 { font-size: 28px; }
-        p { font-size: 20px; margin: 20px 0; }
-        .btn { background: #FFD700; color: #000; padding: 18px 36px; border-radius: 8px; font-size: 24px; text-decoration: none; display: inline-block; margin: 30px; }
-        footer { margin-top: 100px; font-size: 14px; }
+        body { margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; color: white; text-align: center; overflow: hidden; position: relative; }
+        #bg-video { position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; z-index: -2; opacity: 0.3; }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #001a0f 0%, #004026 100%); z-index: -1; }
+        .container { position: relative; z-index: 1; padding: 100px 20px; }
+        h1 { font-size: 60px; margin: 0; text-shadow: 0 0 20px #FFD700; }
+        h2 { font-size: 36px; margin: 20px 0; }
+        p { font-size: 22px; margin: 30px 0; opacity: 0.9; }
+        .btn { background: #FFD700; color: #000; padding: 20px 40px; border-radius: 50px; font-size: 28px; text-decoration: none; display: inline-block; margin: 40px; box-shadow: 0 0 30px #FFD700; transition: 0.3s; }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 0 50px #FFD700; }
+        canvas { position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none; }
+        footer { margin-top: 120px; font-size: 16px; opacity: 0.8; }
     </style>
 </head>
 <body>
-    <h1>0111 LIMITED</h1>
-    <h2>Sovereign African Cloud<br>Talk in Pidgin · Deploy over Starlink</h2>
-    <p>Ex-Ericsson Kista · RC 9000751 · NDPR by Design</p>
-    <a href="https://wa.me/46739537746" class="btn">Test Agent Zero Now →</a>
-    <footer>© 2025 0111 LIMITED · 0111.se · 0111.africa</footer>
+    <video autoplay muted loop id="bg-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-digital-animation-with-geometric-figures-22796-large.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <canvas id="canvas"></canvas>
+    <div class="container">
+        <h1>0111 LIMITED</h1>
+        <h2>Sovereign African Cloud<br>Talk in Pidgin · Deploy over Starlink</h2>
+        <p>Ex-Ericsson Kista · RC 9000751 · NDPR by Design</p>
+        <a href="https://wa.me/46739537746" class="btn">Test Agent Zero Now →</a>
+        <footer>© 2025 0111 LIMITED · 0111.se · 0111.africa</footer>
+    </div>
+
+    <script>
+        // Sparkling particles (beams of light)
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        const numParticles = 100;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.01;
+            }
+            draw() {
+                ctx.fillStyle = '#FFD700';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            for (let i = 0; i < numParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((particle, i) => {
+                particle.update();
+                particle.draw();
+                if (particle.size <= 0.2) {
+                    particles.splice(i, 1);
+                    particles.push(new Particle());
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
