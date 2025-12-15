@@ -3,70 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>0111 LIMITED – Sovereign African Cloud</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>0111 AB – Sovereign African Cloud</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: 'Inter', sans-serif; color: white; text-align: center; overflow: hidden; position: relative; }
-        #bg-video { position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; z-index: -2; opacity: 0.2; }
-        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #001a0f 0%, #004026 50%, #00A651 100%); z-index: -1; }
-        .container { position: relative; z-index: 1; padding: 100px 20px; animation: fadeIn 2s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        h1 { font-size: 60px; margin: 0; text-shadow: 0 0 30px #FFD700; animation: glow 2s ease-in-out infinite alternate; }
-        @keyframes glow { from { text-shadow: 0 0 20px #FFD700; } to { text-shadow: 0 0 40px #FFD700, 0 0 60px #FFD700; } }
-        h2 { font-size: 36px; margin: 20px 0; opacity: 0.9; animation: fadeIn 1.5s ease-in; }
-        p { font-size: 22px; margin: 30px 0; opacity: 0.8; animation: fadeIn 2.5s ease-in; }
-        .btn { background: linear-gradient(45deg, #FFD700, #FFA500); color: #000; padding: 20px 40px; border-radius: 50px; font-size: 28px; text-decoration: none; display: inline-block; margin: 40px; box-shadow: 0 0 30px #FFD700; transition: all 0.3s ease; animation: fadeIn 3s ease-in; }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 0 50px #FFD700; }
+        body { margin: 0; font-family: 'Inter', sans-serif; color: #FFF; background: #000; text-align: center; overflow-x: hidden; scroll-behavior: smooth; }
+        section { min-height: 100vh; padding: 100px 20px; position: relative; }
+        .hero { display: flex; flex-direction: column; justify-content: center; background: linear-gradient(to bottom, #000, #001a0f); }
+        h1 { font-size: 80px; font-weight: 800; margin: 0; letter-spacing: -2px; text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); animation: glow 2s ease-in-out infinite alternate; }
+        @keyframes glow { from { text-shadow: 0 0 10px #FFD700; } to { text-shadow: 0 0 30px #FFD700; } }
+        h2 { font-size: 48px; font-weight: 600; margin: 0 0 40px; color: #FFD700; opacity: 0.9; }
+        p { font-size: 20px; line-height: 1.6; margin: 0 0 30px; opacity: 0.85; font-weight: 300; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .btn { background: linear-gradient(45deg, #FFD700, #FF4500); color: #000; padding: 20px 50px; border-radius: 50px; font-size: 28px; font-weight: 700; text-decoration: none; display: inline-block; margin: 40px 0; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3); transition: all 0.3s ease; }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(255, 215, 0, 0.5); }
+        .ai-section { background: rgba(255, 215, 0, 0.05); border-radius: 20px; padding: 60px; box-shadow: 0 0 30px rgba(255, 215, 0, 0.1); max-width: 900px; margin: 0 auto; }
+        .contact { font-size: 20px; margin: 60px 0; opacity: 0.85; }
+        .contact a { color: #FFD700; text-decoration: none; font-weight: 600; }
+        .contact a:hover { text-decoration: underline; }
+        .news-bar { background: rgba(0, 0, 0, 0.8); padding: 20px; position: fixed; bottom: 0; width: 100%; z-index: 10; font-size: 16px; opacity: 0.9; }
+        .news-bar ul { list-style: none; padding: 0; margin: 0; text-align: left; max-width: 900px; margin: 0 auto; }
+        .news-bar li { margin: 10px 0; color: #FFF; }
         canvas { position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none; }
-        footer { margin-top: 120px; font-size: 16px; opacity: 0.7; animation: fadeIn 4s ease-in; }
+        footer { margin-top: 100px; font-size: 16px; opacity: 0.7; }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            h1 { font-size: 48px; }
+            h2 { font-size: 32px; }
+            p { font-size: 18px; }
+            .btn { padding: 16px 40px; font-size: 24px; }
+            .ai-section { padding: 40px 15px; }
+            .news-bar { font-size: 14px; padding: 15px; }
+        }
     </style>
 </head>
 <body>
-    <video autoplay muted loop id="bg-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-golden-waves-1265-large.mp4" type="video/mp4">
-    </video>
-    <div class="overlay"></div>
     <canvas id="canvas"></canvas>
-    <div class="container">
-        <h1>0111 LIMITED</h1>
-        <h2>Sovereign African Cloud<br>Talk in Pidgin · Deploy over Starlink</h2>
-        <p>Ex-Ericsson Kista · RC 9000751 · NDPR by Design</p>
-        <a href="https://wa.me/46739537746" class="btn">Test Agent Zero Now →</a>
-        <footer>© 2025 0111 LIMITED · 0111.se · 0111.africa</footer>
+    <div class="overlay"></div>
+    <section class="hero">
+        <h1>0111 AB</h1>
+        <h2>Sovereign African Cloud</h2>
+        <p>Secure, NDPR-compliant infrastructure and AI solutions for Europe and Africa.</p>
+        <a href="mailto:abdulrahman.sharafadeen@yahoo.com" class="btn">Enquire Now</a>
+    </section>
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>0111 AB is the Swedish entity of 0111 LIMITED (RC 9000751, Nigeria). We bridge Europe and Africa with sovereign digital technology.</p>
+        <p>Talk in Pidgin · Deploy over Starlink · NDPR by Design</p>
+        <p>Ex-Ericsson Kista · Building the future of sovereign digital Africa</p>
+    </section>
+    <section id="ai" class="section ai-section">
+        <h2>Powered by Advanced AI</h2>
+        <p>Our solutions leverage cutting-edge AI for sovereign data routing, multilingual agents, and talent discovery. Experience the future with Agent Zero.</p>
+        <a href="https://wa.me/46739537746" class="btn">Test Agent Zero</a>
+    </section>
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p><strong>Phone:</strong> <a href="tel:+46739537746">+46 739 53 77 46</a></p>
+        <p><strong>Email:</strong> <a href="mailto:abdulrahman.sharafadeen@yahoo.com">abdulrahman.sharafadeen@yahoo.com</a></p>
+    </section>
+    <div class="news-bar">
+        <h3>Breaking News from CNN</h3>
+        <ul id="news-list">
+            <li>Loading headlines...</li>
+        </ul>
     </div>
+    <footer>© 2025 0111 AB & 0111 LIMITED · 0111.se · 0111.africa</footer>
 
     <script>
-        // Enhanced sparkling particles
+        // Subtle floating golden stars
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         let particles = [];
-        const numParticles = 150;
+        const numParticles = 80;
 
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 4 + 1;
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1 - 0.5;
-                this.opacity = Math.random() * 0.5 + 0.5;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.3;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
                 if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-                if (this.size > 0.3) this.size -= 0.01;
-                this.opacity = 0.5 + Math.sin(Date.now() * 0.005 + this.x) * 0.3; // Pulsing glow
             }
             draw() {
                 ctx.save();
                 ctx.globalAlpha = this.opacity;
                 ctx.fillStyle = '#FFD700';
-                ctx.shadowBlur = 10;
+                ctx.shadowBlur = 15;
                 ctx.shadowColor = '#FFD700';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -83,13 +115,9 @@
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach((particle, i) => {
+            particles.forEach(particle => {
                 particle.update();
                 particle.draw();
-                if (particle.size <= 0.3) {
-                    particles.splice(i, 1);
-                    particles.push(new Particle());
-                }
             });
             requestAnimationFrame(animate);
         }
