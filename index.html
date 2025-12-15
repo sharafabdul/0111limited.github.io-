@@ -4,64 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0111 AB – Sovereign African Cloud</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- For icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: 'Inter', sans-serif; color: #FFF; text-align: center; background: #000; position: relative; overflow: auto; }
-        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0, 26, 15, 0.8) 0%, rgba(0, 77, 38, 0.6) 100%); z-index: -1; }
+        body { margin: 0; font-family: 'Inter', sans-serif; color: white; text-align: center; background: #000; overflow: hidden; position: relative; height: 100vh; }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,26,15,0.8), rgba(0,77,38,0.6)); z-index: -1; }
         .container { position: relative; z-index: 1; padding: 80px 20px; max-width: 900px; margin: 0 auto; }
-        h1 { font-size: 64px; font-weight: 800; margin: 0 0 10px; letter-spacing: -1px; text-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
-        h2 { font-size: 40px; font-weight: 600; margin: 40px 0 20px; }
-        p { font-size: 20px; line-height: 1.6; margin: 0 0 30px; opacity: 0.9; font-weight: 300; }
+        h1 { font-size: 64px; font-weight: 800; margin: 0 0 10px; letter-spacing: -1px; text-shadow: 0 0 30px rgba(255,215,0,0.3); }
+        h2 { font-size: 40px; font-weight: 600; margin: 0 0 30px; }
+        p { font-size: 20px; line-height: 1.6; margin: 0 0 40px; opacity: 0.9; font-weight: 300; }
         .description { font-size: 18px; margin: 0 0 60px; }
-        .ai-section { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 60px 0; }
-        .ai-item { background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 20px; width: 280px; text-align: center; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2); transition: all 0.3s ease; }
-        .ai-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3); }
-        .ai-icon { font-size: 40px; color: #FFD700; margin-bottom: 15px; }
-        .btn { background: linear-gradient(45deg, #FFD700, #FF4500); color: #000; padding: 16px 40px; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; display: inline-block; margin: 40px 0; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5); transition: all 0.3s ease; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.7); }
+        .btn { background: linear-gradient(45deg, #FFD700, #FF4500); color: #000; padding: 16px 40px; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; display: inline-block; margin: 40px 0; box-shadow: 0 5px 20px rgba(255,215,0,0.5); transition: all 0.3s ease; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,215,0,0.7); }
         .contact { font-size: 18px; margin: 40px 0; }
         .contact a { color: #FFD700; text-decoration: none; font-weight: 600; }
         .contact a:hover { text-decoration: underline; }
         footer { font-size: 14px; opacity: 0.7; margin-top: 80px; }
+        canvas { position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none; }
 
-        /* Mobile Responsive (HD Fit) */
+        /* Chat Widget */
+        .chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        .chat-bubble { width: 60px; height: 60px; background: linear-gradient(45deg, #FFD700, #FF4500); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(255,215,0,0.6); cursor: pointer; transition: 0.3s; }
+        .chat-bubble:hover { transform: scale(1.1); }
+        .chat-bubble i { font-size: 28px; color: #000; }
+        .chat-panel { display: none; width: 320px; height: 480px; background: #111; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); position: absolute; bottom: 80px; right: 0; flex-direction: column; }
+        .chat-header { background: #FFD700; color: #000; padding: 15px; border-radius: 20px 20px 0 0; font-weight: 600; }
+        .chat-body { flex: 1; padding: 20px; overflow-y: auto; }
+        .chat-footer { padding: 10px; background: #222; border-radius: 0 0 20px 20px; }
+        .chat-footer input { width: 80%; padding: 10px; border: none; border-radius: 20px; }
+        .chat-footer button { background: #FFD700; color: #000; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer; }
+
+        /* Mobile */
         @media (max-width: 768px) {
             h1 { font-size: 48px; }
             h2 { font-size: 32px; }
             p { font-size: 18px; }
-            .ai-section { flex-direction: column; gap: 20px; }
-            .ai-item { width: 100%; }
             .btn { padding: 14px 30px; font-size: 22px; }
+            .chat-widget { bottom: 10px; right: 10px; }
+            .chat-panel { width: 90%; right: 5%; bottom: 80px; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div class="overlay"></div>
+    <canvas id="canvas"></canvas>
     <div class="container">
         <h1>0111 AB</h1>
         <h2>Sovereign African Cloud</h2>
         <p class="description">0111 AB is the Swedish entity of 0111 LIMITED (RC 9000751, Nigeria). We provide secure, NDPR-compliant cloud infrastructure and AI solutions for European and African markets, including digital talent discovery in sports.</p>
         <p>Talk in Pidgin · Deploy over Starlink · NDPR by Design</p>
         <p>Ex-Ericsson Kista · Building the future of sovereign digital Africa</p>
-        <h2>Our AI Solutions</h2>
-        <div class="ai-section">
-            <div class="ai-item">
-                <i class="ai-icon fas fa-shield-alt"></i>
-                <h3>NDPRoute™</h3>
-                <p>5-day NDPR compliance SaaS for telcos and banks.</p>
-            </div>
-            <div class="ai-item">
-                <i class="ai-icon fas fa-satellite-dish"></i>
-                <h3>AfricaBeam™</h3>
-                <p>Starlink + sovereign routing optimizer for rural networks.</p>
-            </div>
-            <div class="ai-item">
-                <i class="ai-icon fas fa-futbol"></i>
-                <h3>Sidebar Africa™</h3>
-                <p>Daily-upload football talent platform with AI scouting.</p>
-            </div>
-        </div>
         <div class="contact">
             <p><strong>Phone:</strong> <a href="tel:+46739537746">+46 739 53 77 46</a></p>
             <p><strong>Email:</strong> <a href="mailto:abdulrahman.sharafadeen@yahoo.com">abdulrahman.sharafadeen@yahoo.com</a></p>
@@ -69,5 +61,86 @@
         <a href="mailto:abdulrahman.sharafadeen@yahoo.com" class="btn">Enquire Now</a>
         <footer>© 2025 0111 AB & 0111 LIMITED · 0111.se · 0111.africa</footer>
     </div>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-bubble" onclick="toggleChat()">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chat-panel" id="chatPanel">
+            <div class="chat-header">Agent Zero – Live AI Chat</div>
+            <div class="chat-body">
+                <p>Hello! I'm Agent Zero, your sovereign AI assistant. Ask me about NDPRoute™, PidginCore™, or anything 0111.</p>
+                <p><a href="https://wa.me/46739537746" target="_blank">Continue on WhatsApp →</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const panel = document.getElementById('chatPanel');
+            panel.style.display = panel.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Sparkling particles
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        const numParticles = 100;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = '#FFD700';
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = '#FFD700';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function init() {
+            for (let i = 0; i < numParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
