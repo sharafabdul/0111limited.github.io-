@@ -4,47 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0111 AB – Sovereign African Cloud</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: 'Inter', sans-serif; color: white; text-align: center; background: linear-gradient(135deg, #001a0f 0%, #004d33 100%); overflow: hidden; position: relative; }
-        .container { position: relative; z-index: 2; padding: 120px 20px 80px; max-width: 900px; margin: 0 auto; }
-        h1 { font-size: 64px; font-weight: 800; margin: 0 0 20px; letter-spacing: -1px; text-shadow: 0 0 40px rgba(255,215,0,0.3); }
-        h2 { font-size: 36px; font-weight: 600; margin: 0 0 30px; opacity: 0.95; }
-        p { font-size: 22px; line-height: 1.6; margin: 20px 0; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .description { font-size: 18px; margin: 40px 0; opacity: 0.85; }
-        .btn { background: linear-gradient(45deg, #FFD700, #FFA500); color: #000; padding: 20px 50px; border-radius: 50px; font-size: 26px; font-weight: 700; text-decoration: none; display: inline-block; margin: 40px 0; box-shadow: 0 10px 30px rgba(255,215,0,0.4); transition: all 0.3s ease; }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(255,215,0,0.6); }
-        canvas { position: absolute; top: 0; left: 0; z-index: 1; pointer-events: none; }
-        footer { margin-top: 100px; font-size: 16px; opacity: 0.7; }
-        .highlight { color: #FFD700; font-weight: 600; }
+        body { margin: 0; font-family: 'Inter', sans-serif; color: #FFD700; text-align: center; background: #000; overflow: hidden; position: relative; height: 100vh; }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0, 165, 81, 0.2) 0%, rgba(0, 64, 38, 0.3) 100%); z-index: -1; }
+        .container { position: relative; z-index: 1; padding: 80px 20px; max-width: 800px; margin: 0 auto; animation: fadeIn 1.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        h1 { font-size: 48px; font-weight: 800; margin: 0 0 10px; letter-spacing: -1px; color: #FFD700; text-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+        h2 { font-size: 32px; font-weight: 600; margin: 0 0 30px; color: #FFF; opacity: 0.9; }
+        p { font-size: 18px; line-height: 1.6; margin: 0 0 40px; color: #FFF; opacity: 0.85; font-weight: 300; }
+        .btn { background: linear-gradient(45deg, #FFD700, #FF4500); color: #000; padding: 16px 40px; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; display: inline-block; margin: 20px 0; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5); transition: all 0.3s ease; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.7); background: linear-gradient(45deg, #FF4500, #FFD700); }
+        .contact { font-size: 18px; margin: 40px 0; }
+        .contact a { color: #FFD700; text-decoration: none; font-weight: 600; }
+        .contact a:hover { text-decoration: underline; }
+        footer { font-size: 14px; opacity: 0.7; position: absolute; bottom: 20px; width: 100%; }
+        canvas { position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            h2 { font-size: 24px; }
+            p { font-size: 16px; }
+            .btn { padding: 14px 30px; font-size: 20px; }
+        }
     </style>
 </head>
 <body>
     <canvas id="canvas"></canvas>
+    <div class="overlay"></div>
     <div class="container">
         <h1>0111 AB</h1>
         <h2>Sovereign African Cloud</h2>
-        <p class="description">
-            0111 AB is the Swedish entity of <span class="highlight">0111 LIMITED</span> (RC 9000751, Nigeria).<br>
-            We deliver secure, NDPR- and GDPR-compliant cloud infrastructure and AI solutions for European and African markets.
-        </p>
+        <p>0111 AB is the Swedish entity of 0111 LIMITED (RC 9000751, Nigeria). We provide secure, NDPR-compliant cloud infrastructure and AI solutions for European and African markets, including digital talent discovery in sports.</p>
         <p>Talk in Pidgin · Deploy over Starlink · NDPR by Design</p>
         <p>Ex-Ericsson Kista · Building the future of sovereign digital Africa</p>
-        <a href="https://wa.me/46739537746" class="btn">Test Agent Zero Now →</a>
+        <div class="contact">
+            <a href="mailto:abdulrahman.sharafadeen@yahoo.com" class="btn">Enquire Now</a>
+            <p><strong>Phone:</strong> <a href="tel:+46739537746">+46 739 53 77 46</a></p>
+            <p><strong>Email:</strong> <a href="mailto:abdulrahman.sharafadeen@yahoo.com">abdulrahman.sharafadeen@yahoo.com</a></p>
+        </div>
         <footer>© 2025 0111 AB & 0111 LIMITED · 0111.se · 0111.africa</footer>
     </div>
 
     <script>
-        // Subtle floating golden stars (no rising bubbles)
+        // Subtle golden sparkle particles (floating, no bubbling from bottom)
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        let stars = [];
-        const numStars = 80;
+        let particles = [];
+        const numParticles = 80;
 
-        class Star {
+        class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
@@ -73,16 +86,16 @@
         }
 
         function init() {
-            for (let i = 0; i < numStars; i++) {
-                stars.push(new Star());
+            for (let i = 0; i < numParticles; i++) {
+                particles.push(new Particle());
             }
         }
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            stars.forEach(star => {
-                star.update();
-                star.draw();
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
             });
             requestAnimationFrame(animate);
         }
