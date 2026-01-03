@@ -52,6 +52,40 @@
         .enquiry a { background: #d4af37; color: #0f172a; padding: clamp(16px, 5vw, 20px) clamp(40px, 10vw, 60px); border-radius: 60px; font-size: clamp(20px, 5vw, 26px); text-decoration: none; box-shadow: 0 0 60px rgba(212,175,55,0.5); transition: all 0.4s ease; display: inline-block; }
         .enquiry a:hover { transform: translateY(-8px); box-shadow: 0 0 100px rgba(212,175,55,0.8); }
         .footer-meta { margin-top: 4px; font-size: 0.75rem; line-height: 1.2; color: #94a3b8; }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;                /* tighter: 6px */
+            margin-top: 8px;
+        }
+        .card {
+            padding: 8px;            /* tighter card padding */
+            line-height: 1.3;
+        }
+        .services {
+            margin-bottom: 2px;      /* pulls Contact very close */
+        }
+        .contact {
+            margin-top: 0;           /* no gap */
+            padding-top: 2px;        /* minimal breathing room */
+            text-align: center;
+        }
+        .enquiry {
+            display: inline-block;
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+        .meta {
+            font-size: 0.72rem;
+            line-height: 1.15;
+            margin-top: 2px;
+        }
+        @media (max-width: 640px) {
+            .cards {
+                grid-template-columns: 1fr;  /* single column on mobile */
+                gap: 6px;
+            }
+        }
         @media (max-width: 768px) {
             .container { padding: 80px 15px 80px; }
             .grid { grid-template-columns: 1fr; }
@@ -81,7 +115,7 @@
         <section class="services">
             <div class="section-inner">
                 <h3>Services</h3>
-                <div class="grid">
+                <div class="cards">
                     <div class="card">
                         <h4>Sovereign Cloud Solutions</h4>
                         <p>European-focused cloud architecture designed for data residency, resilience, and regulatory alignment.</p>
@@ -109,13 +143,14 @@
                 <p>Open to future collaboration with initiatives such as Gaia-X and aligned European ecosystems.</p>
             </div>
         </section>
+
         <section class="contact">
             <div class="section-inner">
                 <div class="enquiry">
                     <a href="mailto:enquiry@0111.se">Enquiry</a>
                 </div>
-                <div class="footer-meta">
-                    AI & Cloud Consulting · Data Privacy & Governance · Sovereign Infrastructure<br>
+                <div class="meta">
+                    AI & Cloud Consulting · Data Privacy & Governance · Sovereign Infrastructure<br/>
                     © 2026 0111 AB Sweden. All rights reserved.
                 </div>
             </div>
