@@ -8,16 +8,37 @@
     <style>
         body { margin: 0; font-family: 'Inter', sans-serif; color: #e0e0e0; text-align: center; background: linear-gradient(to bottom, #0f172a, #1e293b); min-height: 100vh; position: relative; overflow-y: auto; }
         canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.15; }
-        .container { position: relative; z-index: 2; padding: clamp(80px, 15vw, 150px) 20px 200px; max-width: 1200px; margin: 0 auto; }
-        .logo { font-size: clamp(70px, 12vw, 140px); font-weight: 600; letter-spacing: -0.04em; margin: 0 0 16px; }
-        .logo span { display: inline-block; }
-        .logo .g { color: #7BC043; }
-        .logo .y { color: #F4E409; }
-        .logo .r { color: #D7261E; }
-        .logo .p { color: #5A2DFF; }
-        .hero .sub { font-size: clamp(24px, 6vw, 36px); margin: 16px 0 32px; color: #cbd5e1; font-weight: 600; }
-        .hero h2 { font-size: clamp(36px, 8vw, 60px); margin: 0 0 40px; color: #e0e0e0; }
-        .hero p { font-size: clamp(18px, 4.5vw, 22px); margin: 0 auto 40px; max-width: 800px; }
+        .container { position: relative; z-index: 2; padding: clamp(80px, 15vw, 150px) 20px 80px; max-width: 1200px; margin: 0 auto; }
+        .hero-logo { 
+            font-family: Inter, system-ui, -apple-system, sans-serif; 
+            font-weight: 600; 
+            font-size: clamp(4rem, 14vw, 6.5rem); 
+            letter-spacing: -0.05em; 
+            line-height: 1; 
+            text-align: center; 
+            margin: 0; 
+        }
+        .hero-logo span { display: inline-block; }
+        .hero-logo .g { color: #7BC043; }
+        .hero-logo .y { color: #F4E409; }
+        .hero-logo .r { color: #D7261E; }
+        .hero-logo .p { color: #5A2DFF; }
+        .hero-logo .ab { 
+            color: #e0e0e0; 
+            font-weight: 500; 
+            font-size: 0.35em; 
+            letter-spacing: 0.08em; 
+            vertical-align: middle; 
+            margin-left: 6px; 
+        }
+        .hero-sub { 
+            margin-top: 4px; 
+            text-align: center; 
+            font-size: 0.9rem; 
+            color: #cfcfcf; 
+        }
+        .hero h2 { font-size: clamp(36px, 8vw, 60px); margin: 40px 0; color: #e0e0e0; }
+        .hero p { font-size: clamp(18px, 4.5vw, 22px); margin: 30px auto; max-width: 900px; }
         section { padding: 40px 0; }
         .section-inner { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
         h3 { font-size: clamp(28px, 6vw, 40px); color: #d4af37; margin-bottom: 32px; }
@@ -30,7 +51,7 @@
         .enquiry { margin: 40px 0; }
         .enquiry a { background: #d4af37; color: #0f172a; padding: clamp(16px, 5vw, 20px) clamp(40px, 10vw, 60px); border-radius: 60px; font-size: clamp(20px, 5vw, 26px); text-decoration: none; box-shadow: 0 0 60px rgba(212,175,55,0.5); transition: all 0.4s ease; display: inline-block; }
         .enquiry a:hover { transform: translateY(-8px); box-shadow: 0 0 100px rgba(212,175,55,0.8); }
-        .footer-meta { margin-top: 8px; font-size: 0.75rem; line-height: 1.2; color: #94a3b8; }
+        .footer-meta { margin-top: 4px; font-size: 0.75rem; line-height: 1.2; color: #94a3b8; }
         @media (max-width: 768px) {
             .container { padding: 80px 15px 80px; }
             .grid { grid-template-columns: 1fr; }
@@ -41,10 +62,10 @@
     <canvas id="canvas"></canvas>
     <div class="container">
         <div class="hero">
-            <h1 class="logo">
-                <span class="g">0</span><span class="y">1</span><span class="r">1</span><span class="p">1</span> AB
-            </h1>
-            <p class="sub">Swedish AI & Sovereign Cloud Consultancy</p>
+            <div class="hero-logo">
+                <span class="g">0</span><span class="y">1</span><span class="r">1</span><span class="p">1</span><span class="ab"> AB</span>
+            </div>
+            <p class="hero-sub">Swedish AI & Sovereign Cloud Consultancy</p>
             <h2>Secure and Compliant AI & Cloud Solutions for Europe</h2>
             <p>0111 AB is a Swedish technology and AI consultancy focused on Data Privacy, Sovereign Cloud infrastructure, AI systems, and Data Governance, supporting organizations across Sweden and the European Union.</p>
         </div>
@@ -84,8 +105,8 @@
         <section class="partners">
             <div class="section-inner">
                 <h3>European Alignment</h3>
-                <p>0111 AB develops its technology and governance approach in alignment with Europe’s direction on digital sovereignty, trusted AI, and compliant cloud infrastructure.</p>
-                <p>We are open to future collaborations with European initiatives and industry actors, including Gaia-X and similar ecosystems, where alignment and long-term value are clearly established.</p>
+                <p>Aligned with Europe’s direction on digital sovereignty, trusted AI, and compliant cloud infrastructure.</p>
+                <p>Open to future collaboration with initiatives such as Gaia-X and aligned European ecosystems.</p>
             </div>
         </section>
 
