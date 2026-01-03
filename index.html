@@ -3,252 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>0111 AB – Sovereign AI Cloud</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
-    <style>
-        /* Base Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-        /* Body */
-        body {
-            background-color: #0A1F44; /* Deep navy for enterprise feel */
-            color: #FFFFFF;
-            line-height: 1.6;
-            font-size: 16px;
-        }
-        /* Container */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 0;
-        }
-        /* HERO */
-        header.hero {
-            position: relative;
-            text-align: center;
-            padding: 150px 0;
-            overflow: hidden;
-        }
-        /* HD / AR-style Background */
-        header.hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.02) 0%, transparent 70%),
-                        repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 8px);
-            z-index: 0;
-            pointer-events: none;
-            animation: slowMove 60s linear infinite;
-        }
-        @keyframes slowMove {
-            0% { transform: translate(0,0); }
-            50% { transform: translate(20px,20px); }
-            100% { transform: translate(0,0); }
-        }
-        header.hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(70px, 12vw, 140px);
-            color: #D4AF37; /* Soft gold accent */
-            position: relative;
-            z-index: 1;
-            letter-spacing: 2px;
-            text-shadow: 0 0 30px rgba(212,175,55,0.5);
-        }
-        header.hero .sub {
-            font-size: clamp(24px, 6vw, 36px);
-            margin: 20px 0 40px;
-            position: relative;
-            z-index: 1;
-            color: #cbd5e1;
-            font-weight: 600;
-        }
-        header.hero h2 {
-            font-size: clamp(36px, 8vw, 60px);
-            margin: 0 0 60px;
-            position: relative;
-            z-index: 1;
-            color: #e0e0e0;
-        }
-        .cta-button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 40px;
-            background-color: #D4AF37;
-            color: #0A1F44;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-        .cta-button:hover {
-            background-color: #c19f2f;
-            transform: translateY(-3px);
-        }
-        /* Sections */
-        section {
-            padding: 80px 0;
-        }
-        section h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-            color: #D4AF37;
-        }
-        section p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-        .card {
-            background: rgba(255,255,255,0.05);
-            padding: 40px;
-            border-radius: 16px;
-            transition: transform 0.4s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-        }
-        .card h3 {
-            font-size: 28px;
-            color: #D4AF37;
-            margin-bottom: 20px;
-        }
-        .contact {
-            background: rgba(10,31,68,0.8);
-            border-radius: 20px;
-            padding: 80px 20px;
-        }
-        .contact-form {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 10px;
-            border: none;
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            font-size: 18px;
-        }
-        .contact-form button {
-            background: #D4AF37;
-            color: #0A1F44;
-            padding: 18px 60px;
-            border-radius: 60px;
-            font-size: 20px;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        footer {
-            padding: 40px 0;
-            text-align: center;
-            background-color: #06112B;
-            font-size: 14px;
-        }
-        footer p {
-            margin-bottom: 10px;
-        }
-        @media (max-width: 768px) {
-            .container { padding: 100px 15px 200px; }
-            .grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    <title>0111 AB | Secure & Compliant AI & Cloud Solutions</title>
+    <meta name="description" content="0111 AB is a Swedish AI and technology consultancy specializing in GDPR & EU AI Act compliant AI, Data Privacy, Sovereign Cloud, and Data Governance solutions for Europe.">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- HERO SECTION -->
     <header class="hero">
         <div class="container">
             <h1>0111 AB</h1>
-            <p class="sub">Swedish AI & Sovereign Cloud Consultancy</p>
             <h2>Secure and Compliant AI & Cloud Solutions for Europe</h2>
-            <p>0111 AB is a Swedish technology and AI consultancy specializing in Data Privacy, Sovereign Cloud infrastructure, AI systems, and Data Governance, supporting organizations across Sweden and the European Union.</p>
+            <p>0111 AB is a Swedish technology and AI consultancy focused on Data Privacy, Sovereign Cloud infrastructure, AI systems, and Data Governance, supporting organizations across Sweden and the European Union.</p>
+            <a href="#contact" class="cta-button">Enquiry</a>
         </div>
+        <!-- HD / AR-style background implemented via CSS or canvas -->
     </header>
 
-    <section class="about">
+    <!-- ABOUT SECTION -->
+    <section id="about">
         <div class="container">
             <h2>Built for Trust, Compliance, and Long-Term Value</h2>
-            <p>0111 AB supports organizations in adopting AI and cloud technologies with security, regulatory confidence, and long-term resilience.</p>
-            <p>We operate at the intersection of AI engineering, data governance, and sovereign infrastructure, ensuring that innovation remains compliant, robust, and aligned with European regulatory expectations.</p>
-            <p>Our approach prioritizes clarity, control, and sustainability—enabling clients to deploy advanced technology without compromising trust or accountability.</p>
+            <p>0111 AB supports organizations in designing and operating AI and cloud technologies with a strong emphasis on security, regulatory alignment, and operational resilience.</p>
+            <p>Our work sits at the intersection of AI engineering, data governance, and sovereign infrastructure, ensuring advanced technologies remain compliant, transparent, and fit for regulated environments.</p>
+            <p>We prioritize clarity, control, and sustainability—enabling innovation without compromising accountability.</p>
         </div>
     </section>
 
-    <section class="services">
+    <!-- SERVICES SECTION -->
+    <section id="services">
         <div class="container">
-            <h2>Our Core Capabilities</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Sovereign Cloud Architecture</h3>
-                    <p>European-focused cloud architecture designed for data residency, resilience, and regulatory alignment.</p>
-                </div>
-                <div class="card">
-                    <h3>AI Compliance & Governance</h3>
-                    <p>Assessment, auditing, and advisory services aligned with GDPR and the EU AI Act.</p>
-                </div>
-                <div class="card">
-                    <h3>Data Privacy & Data Governance</h3>
-                    <p>Frameworks and controls that ensure lawful, transparent, and secure data usage across systems and borders.</p>
-                </div>
-                <div class="card">
-                    <h3>Network Optimization & Intelligent Systems</h3>
-                    <p>AI-driven analysis to improve performance, efficiency, and operational stability.</p>
-                </div>
+            <h2>Our Expertise</h2>
+            <div class="service-card">
+                <h3>Compliance Auditor</h3>
+                <p>Automated and advisory-driven assessment of GDPR and EU AI Act requirements, including risk identification, documentation support, and governance alignment.</p>
+            </div>
+            <div class="service-card">
+                <h3>Network AI Optimizer</h3>
+                <p>AI-driven network analysis focused on performance optimization, efficiency, and intelligent resource utilization.</p>
+            </div>
+            <div class="service-card">
+                <h3>Talent Discovery Platforms</h3>
+                <p>AI-powered platforms supporting talent identification, evaluation, and digital profiling across global ecosystems.</p>
             </div>
         </div>
     </section>
 
-    <section class="partners">
+    <!-- PARTNERS & FUTURE COLLABORATIONS -->
+    <section id="partners">
         <div class="container">
-            <h2>Open to Strategic Collaboration</h2>
+            <h2>Open to Strategic European Collaborations</h2>
             <p>0111 AB develops its technology and governance approach in alignment with Europe’s direction on digital sovereignty, trusted AI, and compliant cloud infrastructure.</p>
-            <p>We are open to future collaborations with European initiatives and industry actors, including Gaia-X and similar ecosystems, where strategic alignment and long-term value are clearly established.</p>
+            <p>We are open to future collaborations with European initiatives and industry actors, including <strong>Gaia-X</strong> and similar ecosystems, where strategic alignment and long-term value are clearly established.</p>
             <p>As the company matures, partnerships will be pursued selectively to strengthen interoperability, trust, and regulatory confidence for our clients.</p>
         </div>
     </section>
 
-    <section class="insights">
+    <!-- INSIGHTS SECTION -->
+    <section id="insights">
         <div class="container">
-            <h2>Insights in Development</h2>
-            <p>Technical and regulatory insights covering AI governance, sovereign cloud infrastructure, and European compliance frameworks are currently in development and will be released as our advisory work progresses.</p>
+            <h2>Insights</h2>
+            <p>Insights and publications covering AI governance, sovereign cloud infrastructure, and European regulatory frameworks are currently in development and will be released as our advisory work progresses.</p>
         </div>
     </section>
 
-    <section class="contact">
+    <!-- CONTACT SECTION -->
+    <section id="contact">
         <div class="container">
             <h2>Enquiry</h2>
             <p>If you are exploring secure, compliant AI or sovereign cloud solutions, we welcome your enquiry.</p>
-            <div class="contact-form">
-                <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
-                    <input type="text" name="name" placeholder="Name" required>
-                    <input type="email" name="_replyto" placeholder="Email" required>
-                    <input type="text" name="organization" placeholder="Organization" required>
-                    <textarea name="message" placeholder="Message" rows="6" required></textarea>
-                    <button type="submit">Submit Enquiry</button>
-                </form>
-            </div>
+            <form action="/submit-enquiry" method="POST">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="organization">Organization</label>
+                <input type="text" id="organization" name="organization">
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Enquiry</button>
+            </form>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>0111 AB<br>Sweden</p>
-            <p>AI & Cloud Consulting · Data Privacy & Governance · Sovereign Infrastructure</p>
+            <p><strong>0111 AB</strong> | Sweden</p>
+            <p>AI & Cloud Consulting | Data Privacy & Governance | Sovereign Infrastructure</p>
             <p>© 2026 0111 AB. All rights reserved.</p>
         </div>
     </footer>
